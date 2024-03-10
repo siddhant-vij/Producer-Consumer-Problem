@@ -30,10 +30,19 @@ By comparing implementations in Java, C++, Go, and Python, the project will prov
 
 ## Technical Scope
 
-- **Java**: Using BlockingQueue for thread-safe data exchange between producers and consumers.
-- **C++**: Employing condition variables and mutexes to synchronize access to a shared buffer.
-- **Go**: Leveraging channels and goroutines for idiomatic concurrency patterns.
-- **Python**: Utilizing queue.Queue for thread-based implementations or multiprocessing.Queue for process-based scenarios.
+- **Java**: Using BlockingQueue for thread-safe data exchange between producers and consumers. Other choices of implementation:
+    - wait() and notify()
+    - ReentrantLock and Condition
+    - Semaphore
+- **C++**: Employing condition variables and mutexes to synchronize access to a shared buffer (std::queue). Other choice of implementation:
+    - Thread-safe queues from Boost (boost::lockfree)
+- **Go**: Leveraging channels and goroutines for idiomatic concurrency patterns. Other choices of implementation:
+    - sync.Mutex and sync.Cond
+    - BufferedChannel
+- **Python**: Utilizing queue.Queue for thread-based implementations. Other choices of implementation:
+    - threading.Condition
+    - multiprocessing.Queue
+    - asyncio.Queue
 
 <br>
 
